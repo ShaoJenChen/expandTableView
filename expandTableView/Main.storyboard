@@ -13,7 +13,7 @@
         <!--Gv Expand Table View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GvExpandTableViewController" customModule="ExpandTableView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GvExpandTableViewController" customModule="expandTableView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExpandCell" rowHeight="144" id="qfm-bv-fnT" customClass="GvExpandCell" customModule="ExpandTableView" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExpandCell" rowHeight="144" id="qfm-bv-fnT" customClass="GvDatePickerCell" customModule="expandTableView" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qfm-bv-fnT" id="ez7-pX-dPg">
@@ -43,21 +43,55 @@
                                                                         <constraint firstAttribute="width" constant="30" id="agT-Nd-Xda"/>
                                                                     </constraints>
                                                                 </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vae-k4-Pqa">
+                                                                    <rect key="frame" x="295" y="11.5" width="42" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lh6-mQ-2Hi">
+                                                                    <rect key="frame" x="15" y="11.5" width="42" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" red="0.015216413885354996" green="0.55804270505905151" blue="0.97865003347396851" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.14444217085838318" green="0.1793743371963501" blue="0.24695974588394165" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="7RQ-Fj-K9Z"/>
                                                                 <constraint firstAttribute="trailing" secondItem="wca-sg-a1D" secondAttribute="trailing" constant="8" id="IWD-7W-fLr"/>
+                                                                <constraint firstItem="Lh6-mQ-2Hi" firstAttribute="centerY" secondItem="toW-tV-4tG" secondAttribute="centerY" id="LFs-W8-Eaz"/>
+                                                                <constraint firstItem="vae-k4-Pqa" firstAttribute="centerY" secondItem="toW-tV-4tG" secondAttribute="centerY" id="Ord-5Z-IfB"/>
                                                                 <constraint firstItem="wca-sg-a1D" firstAttribute="centerY" secondItem="toW-tV-4tG" secondAttribute="centerY" id="S1U-5F-DNC"/>
+                                                                <constraint firstItem="Lh6-mQ-2Hi" firstAttribute="leading" secondItem="toW-tV-4tG" secondAttribute="leading" constant="15" id="UIk-7A-bL1"/>
+                                                                <constraint firstItem="wca-sg-a1D" firstAttribute="leading" secondItem="vae-k4-Pqa" secondAttribute="trailing" id="UJA-Nv-3qN"/>
                                                             </constraints>
                                                         </view>
+                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Hyy-bD-GUA">
+                                                            <rect key="frame" x="0.0" y="44" width="375" height="100"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="100" id="gLf-xn-3zf"/>
+                                                            </constraints>
+                                                            <date key="date" timeIntervalSinceReferenceDate="577197766.37676895">
+                                                                <!--2019-04-17 12:42:46 +0000-->
+                                                            </date>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="highlightsToday" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="datePickerValueChanged:" destination="qfm-bv-fnT" eventType="valueChanged" id="48h-gf-jhs"/>
+                                                            </connections>
+                                                        </datePicker>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="toW-tV-4tG" secondAttribute="trailing" id="Fdf-lI-sod"/>
+                                                        <constraint firstItem="Hyy-bD-GUA" firstAttribute="top" secondItem="toW-tV-4tG" secondAttribute="bottom" id="G18-zR-Pji"/>
                                                         <constraint firstItem="toW-tV-4tG" firstAttribute="leading" secondItem="ycq-ow-jZ7" secondAttribute="leading" id="GBF-Ej-lAk"/>
                                                         <constraint firstItem="toW-tV-4tG" firstAttribute="top" secondItem="ycq-ow-jZ7" secondAttribute="top" id="Jjq-Nc-zJT"/>
+                                                        <constraint firstItem="Hyy-bD-GUA" firstAttribute="leading" secondItem="ycq-ow-jZ7" secondAttribute="leading" id="Orz-v8-MSo"/>
                                                         <constraint firstAttribute="height" constant="144" id="ggF-DM-TlW"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Hyy-bD-GUA" secondAttribute="trailing" id="iuU-UK-xbW"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -71,6 +105,10 @@
                                         <connections>
                                             <outlet property="arrowIndicator" destination="wca-sg-a1D" id="9zh-zt-Ve7"/>
                                             <outlet property="cellHeightConstraint" destination="ggF-DM-TlW" id="gva-EE-CgD"/>
+                                            <outlet property="dateLabel" destination="vae-k4-Pqa" id="N2U-iF-fyA"/>
+                                            <outlet property="datePicker" destination="Hyy-bD-GUA" id="sOc-dr-qjf"/>
+                                            <outlet property="titleHeightConstraint" destination="7RQ-Fj-K9Z" id="IPJ-4T-iC9"/>
+                                            <outlet property="titleLabel" destination="Lh6-mQ-2Hi" id="b3G-jc-K3F"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -85,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="27.436281859070466"/>
+            <point key="canvasLocation" x="-20" y="-38"/>
         </scene>
     </scenes>
     <resources>

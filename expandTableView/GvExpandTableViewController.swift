@@ -39,7 +39,11 @@ extension GvExpandTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandCell") as! GvExpandCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandCell") as! GvDatePickerCell
+        
+        if indexPath.row == 0 { cell.titleLabel.text = "From" }
+        
+        if indexPath.row == 1 { cell.titleLabel.text = "To" }
         
         return cell
         
@@ -51,7 +55,7 @@ extension GvExpandTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        if let cell = tableView.cellForRow(at: indexPath) as? GvExpandCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? GvDatePickerCell {
             
             if cell.isExpanded {
                 
@@ -82,7 +86,7 @@ extension GvExpandTableViewController: UITableViewDelegate {
         
         for visibleIndexPath in visibleIndexPaths {
             
-            if let cell = tableView.cellForRow(at: visibleIndexPath) as? GvExpandCell {
+            if let cell = tableView.cellForRow(at: visibleIndexPath) as? GvDatePickerCell {
                 
                 if !cell.isExpanded && visibleIndexPath == indexPath {
                     
