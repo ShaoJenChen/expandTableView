@@ -33,6 +33,8 @@ class GvDatePickerCell: UITableViewCell {
         
         self.contentView.backgroundColor = .black
         
+        self.datePicker.locale = Locale(identifier: "zh-TW")
+        
         self.datePicker.setValue(UIColor.white, forKey: "textColor")
         
         self.dateFormatter.dateFormat = "yyyy / MM / dd  HH:mm"

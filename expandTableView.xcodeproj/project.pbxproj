@@ -8,24 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		8D1E8E222266C5A000031B28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E8E212266C5A000031B28 /* AppDelegate.swift */; };
-		8D1E8E242266C5A000031B28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E8E232266C5A000031B28 /* ViewController.swift */; };
 		8D1E8E292266C5A300031B28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D1E8E282266C5A300031B28 /* Assets.xcassets */; };
 		8D1E8E2C2266C5A300031B28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D1E8E2A2266C5A300031B28 /* LaunchScreen.storyboard */; };
 		8D1E8E352266C5C000031B28 /* GvExpandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E8E332266C5C000031B28 /* GvExpandTableViewController.swift */; };
 		8D1E8E362266C5C000031B28 /* GvDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E8E342266C5C000031B28 /* GvDatePickerCell.swift */; };
 		8D1E8E382266C60700031B28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D1E8E372266C60700031B28 /* Main.storyboard */; };
+		8D490E372268263100BE1205 /* SingleSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D490E362268263100BE1205 /* SingleSelectCell.swift */; };
+		8D490E3922685A9E00BE1205 /* SingleSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D490E3822685A9E00BE1205 /* SingleSelectViewController.swift */; };
+		8DD6783822685FB40035B255 /* OpinionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD6783722685FB40035B255 /* OpinionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8D1E8E1E2266C5A000031B28 /* expandTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expandTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1E8E212266C5A000031B28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8D1E8E232266C5A000031B28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8D1E8E282266C5A300031B28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D1E8E2B2266C5A300031B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D1E8E2D2266C5A300031B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1E8E332266C5C000031B28 /* GvExpandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GvExpandTableViewController.swift; sourceTree = "<group>"; };
 		8D1E8E342266C5C000031B28 /* GvDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GvDatePickerCell.swift; sourceTree = "<group>"; };
 		8D1E8E372266C60700031B28 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8D490E362268263100BE1205 /* SingleSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectCell.swift; sourceTree = "<group>"; };
+		8D490E3822685A9E00BE1205 /* SingleSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectViewController.swift; sourceTree = "<group>"; };
+		8DD6783722685FB40035B255 /* OpinionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +63,11 @@
 			isa = PBXGroup;
 			children = (
 				8D1E8E212266C5A000031B28 /* AppDelegate.swift */,
-				8D1E8E232266C5A000031B28 /* ViewController.swift */,
-				8D1E8E342266C5C000031B28 /* GvDatePickerCell.swift */,
 				8D1E8E332266C5C000031B28 /* GvExpandTableViewController.swift */,
+				8D490E3822685A9E00BE1205 /* SingleSelectViewController.swift */,
+				8D1E8E342266C5C000031B28 /* GvDatePickerCell.swift */,
+				8D490E362268263100BE1205 /* SingleSelectCell.swift */,
+				8DD6783722685FB40035B255 /* OpinionCell.swift */,
 				8D1E8E372266C60700031B28 /* Main.storyboard */,
 				8D1E8E282266C5A300031B28 /* Assets.xcassets */,
 				8D1E8E2A2266C5A300031B28 /* LaunchScreen.storyboard */,
@@ -142,8 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D1E8E352266C5C000031B28 /* GvExpandTableViewController.swift in Sources */,
-				8D1E8E242266C5A000031B28 /* ViewController.swift in Sources */,
+				8D490E372268263100BE1205 /* SingleSelectCell.swift in Sources */,
+				8D490E3922685A9E00BE1205 /* SingleSelectViewController.swift in Sources */,
 				8D1E8E362266C5C000031B28 /* GvDatePickerCell.swift in Sources */,
+				8DD6783822685FB40035B255 /* OpinionCell.swift in Sources */,
 				8D1E8E222266C5A000031B28 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79E68ZK73C;
 				INFOPLIST_FILE = expandTableView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +312,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79E68ZK73C;
 				INFOPLIST_FILE = expandTableView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
