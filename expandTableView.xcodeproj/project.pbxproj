@@ -15,6 +15,7 @@
 		8D1E8E382266C60700031B28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D1E8E372266C60700031B28 /* Main.storyboard */; };
 		8D490E372268263100BE1205 /* SingleSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D490E362268263100BE1205 /* SingleSelectCell.swift */; };
 		8D490E3922685A9E00BE1205 /* SingleSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D490E3822685A9E00BE1205 /* SingleSelectViewController.swift */; };
+		8DB595712269989500C638AC /* InputFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB595702269989500C638AC /* InputFieldCell.swift */; };
 		8DD6783822685FB40035B255 /* OpinionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD6783722685FB40035B255 /* OpinionCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		8D1E8E372266C60700031B28 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8D490E362268263100BE1205 /* SingleSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectCell.swift; sourceTree = "<group>"; };
 		8D490E3822685A9E00BE1205 /* SingleSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectViewController.swift; sourceTree = "<group>"; };
+		8DB595702269989500C638AC /* InputFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldCell.swift; sourceTree = "<group>"; };
 		8DD6783722685FB40035B255 /* OpinionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				8D490E3822685A9E00BE1205 /* SingleSelectViewController.swift */,
 				8D1E8E342266C5C000031B28 /* GvDatePickerCell.swift */,
 				8D490E362268263100BE1205 /* SingleSelectCell.swift */,
+				8DB595702269989500C638AC /* InputFieldCell.swift */,
 				8DD6783722685FB40035B255 /* OpinionCell.swift */,
 				8D1E8E372266C60700031B28 /* Main.storyboard */,
 				8D1E8E282266C5A300031B28 /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DB595712269989500C638AC /* InputFieldCell.swift in Sources */,
 				8D1E8E352266C5C000031B28 /* GvExpandTableViewController.swift in Sources */,
 				8D490E372268263100BE1205 /* SingleSelectCell.swift in Sources */,
 				8D490E3922685A9E00BE1205 /* SingleSelectViewController.swift in Sources */,

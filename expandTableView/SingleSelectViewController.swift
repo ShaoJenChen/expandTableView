@@ -8,19 +8,11 @@
 
 import UIKit
 
-protocol SingleSelectProtocol {
-    
-    func didSelect(index: Int?, opinionName: String?, forOriginl indexPath: IndexPath)
-    
-}
-
 class SingleSelectViewController: UIViewController {
 
     var selectedIndex: Int?
     
     var opinions: [String]!
-    
-    var originalIndexPath: IndexPath!
     
     var delegate: SingleSelectProtocol?
     
@@ -78,7 +70,7 @@ class SingleSelectViewController: UIViewController {
 
         tableView.reloadData()
 
-        self.delegate?.didSelect(index: nil, opinionName: nil, forOriginl: self.originalIndexPath)
+        self.delegate?.didSelect(index: nil)
         
         self.dismiss(animated: true, completion: nil)
         
@@ -120,7 +112,7 @@ extension SingleSelectViewController: UITableViewDelegate {
         tableView.reloadData()
         
         
-        self.delegate?.didSelect(index: indexPath.row, opinionName: self.opinions[indexPath.row], forOriginl: self.originalIndexPath)
+        self.delegate?.didSelect(index: indexPath.row)
         
         DispatchQueue.main.async {
         

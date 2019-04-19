@@ -152,6 +152,40 @@
                                             <outlet property="titleLabel" destination="1DU-zr-avk" id="C7h-CX-6Jt"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="InputFieldCell" rowHeight="44" id="43n-mC-Ca3" customClass="InputFieldCell" customModule="expandTableView" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="266" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="43n-mC-Ca3" id="BzJ-Ff-9Fe">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayp-7N-1xc">
+                                                    <rect key="frame" x="15" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.45949196815490723" green="0.54525017738342285" blue="0.64056414365768433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h3Y-Nx-hR9">
+                                                    <rect key="frame" x="65" y="13.5" width="262" height="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="h3Y-Nx-hR9" secondAttribute="trailing" constant="48" id="GKR-jh-Xno"/>
+                                                <constraint firstItem="h3Y-Nx-hR9" firstAttribute="leading" secondItem="Ayp-7N-1xc" secondAttribute="trailing" constant="8" id="abW-e2-jjA"/>
+                                                <constraint firstItem="Ayp-7N-1xc" firstAttribute="leading" secondItem="BzJ-Ff-9Fe" secondAttribute="leadingMargin" id="dTI-G9-EZv"/>
+                                                <constraint firstItem="Ayp-7N-1xc" firstAttribute="centerY" secondItem="BzJ-Ff-9Fe" secondAttribute="centerY" id="kXp-I0-Qom"/>
+                                                <constraint firstItem="h3Y-Nx-hR9" firstAttribute="centerY" secondItem="BzJ-Ff-9Fe" secondAttribute="centerY" id="pnd-DK-tbv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="inputField" destination="h3Y-Nx-hR9" id="KzW-Qh-dmg"/>
+                                            <outlet property="titleLabel" destination="Ayp-7N-1xc" id="fZO-7P-fD7"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="2BG-Hc-vlo"/>
@@ -175,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-598" y="-44"/>
+            <point key="canvasLocation" x="-599.20000000000005" y="-44.527736131934034"/>
         </scene>
         <!--Single Select View Controller-->
         <scene sceneID="cqM-4y-VUS">

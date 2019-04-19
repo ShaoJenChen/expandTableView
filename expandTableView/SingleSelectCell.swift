@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol SingleSelectProtocol {
+    
+    func didSelect(index: Int?)
+    
+}
+
 class SingleSelectCell: UITableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
@@ -18,6 +24,8 @@ class SingleSelectCell: UITableViewCell {
     
     var selectedIndex: Int?
     
+    var indexPath: IndexPath?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -27,4 +35,21 @@ class SingleSelectCell: UITableViewCell {
 
     }
 
+}
+
+extension SingleSelectCell: SingleSelectProtocol {
+    
+    func didSelect(index: Int?) {
+        
+        if let index = index,
+            let opinions = self.selectOpinions {
+            
+            self.selectedIndex = index
+            
+            self.selectedItemLabel.text = opinions[index]
+            
+        }
+        
+    }
+    
 }
