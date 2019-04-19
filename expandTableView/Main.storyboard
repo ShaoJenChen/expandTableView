@@ -159,30 +159,49 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayp-7N-1xc">
-                                                    <rect key="frame" x="15" y="11.5" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.45949196815490723" green="0.54525017738342285" blue="0.64056414365768433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h3Y-Nx-hR9">
-                                                    <rect key="frame" x="65" y="13.5" width="262" height="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7s-eq-FlW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="chz-6b-U3K">
+                                                            <rect key="frame" x="65" y="0.0" width="262" height="43.5"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="43n-mC-Ca3" id="X3E-5a-RfV"/>
+                                                            </connections>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayp-7N-1xc">
+                                                            <rect key="frame" x="15" y="11.5" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.45949196815490723" green="0.54525017738342285" blue="0.64056414365768433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="chz-6b-U3K" secondAttribute="trailing" constant="48" id="4iv-bH-mN4"/>
+                                                        <constraint firstItem="chz-6b-U3K" firstAttribute="centerY" secondItem="S7s-eq-FlW" secondAttribute="centerY" id="5Mb-tj-hoc"/>
+                                                        <constraint firstAttribute="height" constant="43.5" id="DGn-1Y-CXD"/>
+                                                        <constraint firstItem="Ayp-7N-1xc" firstAttribute="centerY" secondItem="S7s-eq-FlW" secondAttribute="centerY" id="JB0-ku-hHV"/>
+                                                        <constraint firstAttribute="bottom" secondItem="chz-6b-U3K" secondAttribute="bottom" id="JXL-fJ-He4"/>
+                                                        <constraint firstItem="chz-6b-U3K" firstAttribute="top" secondItem="S7s-eq-FlW" secondAttribute="top" id="PF6-cG-5Tf"/>
+                                                        <constraint firstItem="chz-6b-U3K" firstAttribute="leading" secondItem="Ayp-7N-1xc" secondAttribute="trailing" constant="8" id="meu-UA-W8p"/>
+                                                        <constraint firstItem="Ayp-7N-1xc" firstAttribute="leading" secondItem="S7s-eq-FlW" secondAttribute="leading" constant="15" id="ruN-gG-kZB"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="h3Y-Nx-hR9" secondAttribute="trailing" constant="48" id="GKR-jh-Xno"/>
-                                                <constraint firstItem="h3Y-Nx-hR9" firstAttribute="leading" secondItem="Ayp-7N-1xc" secondAttribute="trailing" constant="8" id="abW-e2-jjA"/>
-                                                <constraint firstItem="Ayp-7N-1xc" firstAttribute="leading" secondItem="BzJ-Ff-9Fe" secondAttribute="leadingMargin" id="dTI-G9-EZv"/>
-                                                <constraint firstItem="Ayp-7N-1xc" firstAttribute="centerY" secondItem="BzJ-Ff-9Fe" secondAttribute="centerY" id="kXp-I0-Qom"/>
-                                                <constraint firstItem="h3Y-Nx-hR9" firstAttribute="centerY" secondItem="BzJ-Ff-9Fe" secondAttribute="centerY" id="pnd-DK-tbv"/>
+                                                <constraint firstItem="S7s-eq-FlW" firstAttribute="leading" secondItem="BzJ-Ff-9Fe" secondAttribute="leading" id="TSq-Xc-uys"/>
+                                                <constraint firstAttribute="trailing" secondItem="S7s-eq-FlW" secondAttribute="trailing" id="c4e-px-3Md"/>
+                                                <constraint firstItem="S7s-eq-FlW" firstAttribute="top" secondItem="BzJ-Ff-9Fe" secondAttribute="top" id="lcQ-gH-2zG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="inputField" destination="h3Y-Nx-hR9" id="KzW-Qh-dmg"/>
+                                            <outlet property="cellHeightConstraint" destination="DGn-1Y-CXD" id="fwb-1L-Uyh"/>
+                                            <outlet property="textView" destination="chz-6b-U3K" id="qWY-Nc-Ru0"/>
                                             <outlet property="titleLabel" destination="Ayp-7N-1xc" id="fZO-7P-fD7"/>
                                         </connections>
                                     </tableViewCell>

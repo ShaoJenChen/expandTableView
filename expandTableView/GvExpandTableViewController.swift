@@ -25,7 +25,7 @@ class GvExpandTableViewController: UIViewController {
 
 extension GvExpandTableViewController {
     
-    private func getDatePickerCell(_ tableView: UITableView, indexPath: IndexPath, title: String) -> GvDatePickerCell {
+    private func getDatePickerCell(_ tableView: UITableView, title: String) -> GvDatePickerCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DatePickerCell") as! GvDatePickerCell
         
@@ -56,6 +56,20 @@ extension GvExpandTableViewController {
             cell.selectedItemLabel.text = ""
             
         }
+        
+        return cell
+        
+    }
+    
+    private func getInputFieldCell(_ tableView: UITableView, title: String, placeHolder: String) -> InputFieldCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldCell
+        
+        cell.tableView = tableView
+        
+        cell.titleLabel.text = title
+        
+        cell.placeHolder = placeHolder
         
         return cell
         
@@ -128,7 +142,7 @@ extension GvExpandTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        return 6
         
     }
     
@@ -137,9 +151,9 @@ extension GvExpandTableViewController: UITableViewDataSource {
         switch indexPath.row {
             
         case 0:
-            return self.getDatePickerCell(tableView, indexPath: indexPath, title: "From")
+            return self.getDatePickerCell(tableView, title: "From")
         case 1:
-            return self.getDatePickerCell(tableView, indexPath: indexPath, title: "To")
+            return self.getDatePickerCell(tableView, title: "To")
             
         case 2:
             // let cameras = DeviceConnector.connector.deviceCameraList()
@@ -155,6 +169,12 @@ extension GvExpandTableViewController: UITableViewDataSource {
             // let groups = DeviceConnector.connector.deviceGroupList()
             
             return self.getSingleSelectCell(tableView, indexPath: indexPath, title: "Group", opinions: ["Group1","Group2","Group3"])
+            
+        case 4:
+            return self.getInputFieldCell(tableView, title: "Note1", placeHolder: "InputNote")
+            
+        case 5:
+            return self.getInputFieldCell(tableView, title: "Note2", placeHolder: "InputNote")
             
         default:
             return UITableViewCell()
@@ -180,6 +200,12 @@ extension GvExpandTableViewController: UITableViewDelegate {
                 return 44.0
                 
             }
+            
+        }
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? InputFieldCell {
+            
+            return cell.cellHeightConstraint.constant
             
         }
         else {
