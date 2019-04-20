@@ -18,8 +18,6 @@ class SingleSelectCell: SJExpandCell {
     
     var selectedIndex: Int?
     
-    var indexPath: IndexPath?
-    
     var parantTable: UITableView?
     
     override func awakeFromNib() {

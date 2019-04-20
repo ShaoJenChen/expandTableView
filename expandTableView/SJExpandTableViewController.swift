@@ -35,7 +35,7 @@ extension SJExpandTableViewController {
         
     }
     
-    private func getSingleSelectCell(_ tableView: UITableView, indexPath: IndexPath, title: String, options: [String]? ) -> SingleSelectCell {
+    private func getSingleSelectCell(_ tableView: UITableView, title: String, options: [String]? ) -> SingleSelectCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SingleSelectCell") as! SingleSelectCell
         
@@ -43,19 +43,12 @@ extension SJExpandTableViewController {
         
         cell.titleLabel.text = title
         
-        cell.indexPath = indexPath
-        
         cell.parantTable = tableView
         
         if let selectedIndex = cell.selectedIndex,
             let options = cell.selectOptions {
             
             cell.selectedItemLabel.text = options[selectedIndex]
-            
-        }
-        else {
-            
-            cell.selectedItemLabel.text = ""
             
         }
         
@@ -142,12 +135,12 @@ extension SJExpandTableViewController: UITableViewDataSource {
                 fakeDatas.append("Camera\(index)")
             }
             
-            return self.getSingleSelectCell(tableView, indexPath: indexPath, title: "Camera", options: fakeDatas)
+            return self.getSingleSelectCell(tableView, title: "Camera", options: fakeDatas)
             
         case 3:
             // let groups = DeviceConnector.connector.deviceGroupList()
             
-            return self.getSingleSelectCell(tableView, indexPath: indexPath, title: "Group", options: ["Group1","Group2","Group3"])
+            return self.getSingleSelectCell(tableView, title: "Group", options: ["Group1","Group2","Group3"])
             
         case 4:
             return self.getInputFieldCell(tableView, indexPath: indexPath, title: "Note1", placeHolder: "InputNote")
