@@ -1,5 +1,5 @@
 //
-//  OpinionCell.swift
+//  OptionCell.swift
 //  expandTableView
 //
 //  Created by ShaoJen Chen on 2019/4/18.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class OpinionCell: UITableViewCell {
+class OptionCell: UITableViewCell {
 
-    @IBOutlet var opinionLabel: UILabel!
+    @IBOutlet var optionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -8,26 +8,25 @@
 
 import UIKit
 
-protocol SingleSelectProtocol {
-    
-    func didSelect(index: Int?)
-    
-}
-
-class SingleSelectCell: UITableViewCell {
-    
-    @IBOutlet var titleLabel: UILabel!
+class SingleSelectCell: SJExpandCell {
     
     @IBOutlet var selectedItemLabel: UILabel!
     
-    var selectOpinions: [String]?
+    @IBOutlet weak var optionsTableView: UITableView!
+    
+    var selectOptions: [String]?
     
     var selectedIndex: Int?
     
     var indexPath: IndexPath?
     
+    var parantTable: UITableView?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+                
+        self.optionsTableView.tableFooterView = UIView()
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,19 +36,54 @@ class SingleSelectCell: UITableViewCell {
 
 }
 
-extension SingleSelectCell: SingleSelectProtocol {
+extension SingleSelectCell: UITableViewDataSource {
     
-    func didSelect(index: Int?) {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let index = index,
-            let opinions = self.selectOpinions {
+        guard let count = self.selectOptions?.count else { return 0 }
+        
+        return count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OptionCell") as? OptionCell else { return UITableViewCell() }
+        
+        if let options = self.selectOptions {
             
-            self.selectedIndex = index
+            cell.optionLabel.text = options[indexPath.row]
             
-            self.selectedItemLabel.text = opinions[index]
+            guard indexPath.row == self.selectedIndex else { cell.accessoryType = .none; return cell }
+            
+            cell.accessoryType = .checkmark
+            
+            return cell
             
         }
         
+        return cell
+        
+    }
+    
+}
+
+extension SingleSelectCell: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.selectedIndex = indexPath.row
+        
+        self.selectedItemLabel.text = self.selectOptions![indexPath.row]
+        
+        self.collapse()
+        
+        self.optionsTableView?.reloadData()
+        
+        self.parantTable?.beginUpdates()
+        
+        self.parantTable?.endUpdates()
+
     }
     
 }

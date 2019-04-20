@@ -1,57 +1,37 @@
 //
-//  GvDatePickerCell.swift
-//  ExpandTableView
+//  SJExpandCell.swift
+//  expandTableView
 //
-//  Created by 陳劭任 on 2019/4/16.
-//  Copyright © 2019 陳劭任. All rights reserved.
+//  Created by 陳劭任 on 2019/4/20.
+//  Copyright © 2019 ShaoJenChen. All rights reserved.
 //
 
 import UIKit
 
-class GvDatePickerCell: UITableViewCell {
-
+class SJExpandCell: BaseCell {
+    
     @IBOutlet weak var arrowIndicator: UIImageView!
     
     @IBOutlet weak var titleHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var cellHeightConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    
-    @IBOutlet weak var dateLabel: UILabel!
-    
-    @IBOutlet weak var datePicker: UIDatePicker!
-    
-    var totalHeight: CGFloat!
-    
     var isExpanded: Bool = false
     
-    let dateFormatter = DateFormatter()
+    var totalHeight: CGFloat!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.contentView.backgroundColor = .black
-        
-        self.datePicker.locale = Locale(identifier: "zh-TW")
-        
-        self.datePicker.setValue(UIColor.white, forKey: "textColor")
-        
-        self.dateFormatter.dateFormat = "yyyy / MM / dd  HH:mm"
-        
-        self.dateLabel.text = self.dateFormatter.string(from: Date())
-        
         self.totalHeight = self.frame.height
         
         self.cellHeightConstraint.constant = self.titleHeightConstraint.constant
+
     }
 
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
     }
-
+    
     func expand() {
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
             
@@ -83,13 +63,6 @@ class GvDatePickerCell: UITableViewCell {
             
         })
     }
-    @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
-        
-        let pickerDate = sender.date
-        
-        let dateStr = self.dateFormatter.string(from: pickerDate)
-        
-        self.dateLabel.text = dateStr
-        
-    }
+
+
 }

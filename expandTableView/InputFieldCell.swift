@@ -8,15 +8,15 @@
 
 import UIKit
 
-class InputFieldCell: UITableViewCell {
-
-    @IBOutlet var titleLabel: UILabel!
-    
-    @IBOutlet var cellHeightConstraint: NSLayoutConstraint!
+class InputFieldCell: BaseCell {
     
     @IBOutlet var textView: UITextView!
     
     var tableView: UITableView?
+    
+    var indexPath: IndexPath?
+    
+    var titleHeight: CGFloat!
     
     var placeHolder: String? {
         
@@ -36,6 +36,11 @@ class InputFieldCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.titleHeight = 43.5
+        
+        self.cellHeightConstraint.constant = self.titleHeight
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,7 +56,7 @@ extension InputFieldCell: UITextViewDelegate {
         
         self.tableView?.beginUpdates()
         
-        let constant = textView.contentSize.height > 43.5 ? textView.contentSize.height : 43.5
+        let constant = self.textView.contentSize.height > 43.5 ? self.textView.contentSize.height : 43.5
         
         self.cellHeightConstraint.constant = constant
 
@@ -61,6 +66,10 @@ extension InputFieldCell: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
+        let delegate = self.tableView?.delegate
+        
+        delegate?.tableView?(self.tableView!, didSelectRowAt: self.indexPath!)
+                
         self.textView.text = nil
         
         self.textViewDidChange(textView)
@@ -81,8 +90,6 @@ extension InputFieldCell: UITextViewDelegate {
             self.textView.textColor = .gray
             
         }
-        
-        textView.scrollRectToVisible(CGRect.zero, animated: false)
         
     }
     

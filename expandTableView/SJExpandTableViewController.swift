@@ -1,5 +1,5 @@
 //
-//  GvExpandTableViewController.swift
+//  SJExpandTableViewController.swift
 //  ExpandTableView
 //
 //  Created by 陳劭任 on 2019/4/16.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class GvExpandTableViewController: UIViewController {
+class SJExpandTableViewController: UIViewController {
     
-    @IBOutlet weak var GvExpandTableView: UITableView!
+    @IBOutlet weak var SJExpandTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.GvExpandTableView.tableFooterView = UIView()
+        self.SJExpandTableView.tableFooterView = UIView()
         
     }
     
@@ -23,11 +23,11 @@ class GvExpandTableViewController: UIViewController {
 
 // MARK: Create Cell
 
-extension GvExpandTableViewController {
+extension SJExpandTableViewController {
     
-    private func getDatePickerCell(_ tableView: UITableView, title: String) -> GvDatePickerCell {
+    private func getDatePickerCell(_ tableView: UITableView, title: String) -> DatePickerCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DatePickerCell") as! GvDatePickerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DatePickerCell") as! DatePickerCell
         
         cell.titleLabel.text = title
         
@@ -35,20 +35,22 @@ extension GvExpandTableViewController {
         
     }
     
-    private func getSingleSelectCell(_ tableView: UITableView, indexPath: IndexPath, title: String, opinions: [String]? ) -> SingleSelectCell {
+    private func getSingleSelectCell(_ tableView: UITableView, indexPath: IndexPath, title: String, options: [String]? ) -> SingleSelectCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SingleSelectCell") as! SingleSelectCell
         
-        cell.selectOpinions = opinions
+        cell.selectOptions = options
         
         cell.titleLabel.text = title
         
         cell.indexPath = indexPath
         
+        cell.parantTable = tableView
+        
         if let selectedIndex = cell.selectedIndex,
-            let opinions = cell.selectOpinions {
+            let options = cell.selectOptions {
             
-            cell.selectedItemLabel.text = opinions[selectedIndex]
+            cell.selectedItemLabel.text = options[selectedIndex]
             
         }
         else {
@@ -61,11 +63,13 @@ extension GvExpandTableViewController {
         
     }
     
-    private func getInputFieldCell(_ tableView: UITableView, title: String, placeHolder: String) -> InputFieldCell {
+    private func getInputFieldCell(_ tableView: UITableView, indexPath: IndexPath, title: String, placeHolder: String) -> InputFieldCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldCell
         
         cell.tableView = tableView
+        
+        cell.indexPath = indexPath
         
         cell.titleLabel.text = title
         
@@ -79,7 +83,7 @@ extension GvExpandTableViewController {
 
 //MARK: HandleAnimate
 
-extension GvExpandTableViewController {
+extension SJExpandTableViewController {
     
     func expandCollapseAnimate(_ tableView: UITableView, indexPath: IndexPath) {
         
@@ -89,7 +93,7 @@ extension GvExpandTableViewController {
         
         for visibleIndexPath in visibleIndexPaths {
             
-            if let cell = tableView.cellForRow(at: visibleIndexPath) as? GvDatePickerCell {
+            if let cell = tableView.cellForRow(at: visibleIndexPath) as? SJExpandCell {
                 
                 if !cell.isExpanded && visibleIndexPath == indexPath {
                     
@@ -112,33 +116,8 @@ extension GvExpandTableViewController {
     
 }
 
-extension GvExpandTableViewController {
-    
-    func presentSingleSelectViewController(from singleSelectCell: SingleSelectCell) {
-        
-        self.performSegue(withIdentifier: "singleSelectViewSegue", sender: singleSelectCell)
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let viewController = segue.destination as? SingleSelectViewController,
-            let cell = sender as? SingleSelectCell,
-            segue.identifier == "singleSelectViewSegue" {
-            
-            viewController.delegate = cell
-            
-            viewController.selectedIndex = cell.selectedIndex
-            
-            viewController.opinions = cell.selectOpinions
-            
-        }
-        
-    }
-    
-}
 
-extension GvExpandTableViewController: UITableViewDataSource {
+extension SJExpandTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -163,18 +142,18 @@ extension GvExpandTableViewController: UITableViewDataSource {
                 fakeDatas.append("Camera\(index)")
             }
             
-            return self.getSingleSelectCell(tableView, indexPath: indexPath, title: "Camera", opinions: fakeDatas)
+            return self.getSingleSelectCell(tableView, indexPath: indexPath, title: "Camera", options: fakeDatas)
             
         case 3:
             // let groups = DeviceConnector.connector.deviceGroupList()
             
-            return self.getSingleSelectCell(tableView, indexPath: indexPath, title: "Group", opinions: ["Group1","Group2","Group3"])
+            return self.getSingleSelectCell(tableView, indexPath: indexPath, title: "Group", options: ["Group1","Group2","Group3"])
             
         case 4:
-            return self.getInputFieldCell(tableView, title: "Note1", placeHolder: "InputNote")
+            return self.getInputFieldCell(tableView, indexPath: indexPath, title: "Note1", placeHolder: "InputNote")
             
         case 5:
-            return self.getInputFieldCell(tableView, title: "Note2", placeHolder: "InputNote")
+            return self.getInputFieldCell(tableView, indexPath: indexPath, title: "Note2", placeHolder: "InputNote")
             
         default:
             return UITableViewCell()
@@ -184,46 +163,42 @@ extension GvExpandTableViewController: UITableViewDataSource {
     
 }
 
-extension GvExpandTableViewController: UITableViewDelegate {
+extension SJExpandTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if let cell = tableView.cellForRow(at: indexPath) as? GvDatePickerCell {
-            
-            if cell.isExpanded {
-                
-                return cell.totalHeight
-                
-            }
-            else {
-                
-                return 44.0
-                
-            }
-            
-        }
-        
-        if let cell = tableView.cellForRow(at: indexPath) as? InputFieldCell {
-            
+        if let cell = tableView.cellForRow(at: indexPath) as? DatePickerCell {
+
             return cell.cellHeightConstraint.constant
-            
+
         }
-        else {
-            
-            return 44.0
-            
+
+        if let cell = tableView.cellForRow(at: indexPath) as? InputFieldCell {
+
+            return cell.cellHeightConstraint.constant
+
         }
+
+        if let cell = tableView.cellForRow(at: indexPath) as? SingleSelectCell,
+            cell.isExpanded {
+
+                let maxHeight = self.view.frame.height * 0.3
+                
+                let estimateHeight = CGFloat(cell.selectOptions!.count) * 44 + 44
+
+                let heightConstant = estimateHeight > maxHeight ? maxHeight : estimateHeight
+
+                return heightConstant
+
+        }
+
+        return 44.0
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.expandCollapseAnimate(tableView, indexPath: indexPath)
-        
-        if let cell = tableView.cellForRow(at: indexPath) as? SingleSelectCell {
-            
-            self.presentSingleSelectViewController(from: cell)
-            
-        }
         
     }
     

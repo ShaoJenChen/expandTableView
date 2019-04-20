@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol SingleSelectProtocol {
+    
+    func didSelect(index: Int?)
+    
+}
+
 class SingleSelectViewController: UIViewController {
 
     var selectedIndex: Int?
     
-    var opinions: [String]!
+    var options: [String]!
     
     var delegate: SingleSelectProtocol?
     
@@ -37,7 +43,7 @@ class SingleSelectViewController: UIViewController {
 
         let maxHeight = self.view.frame.height * 0.65
         
-        let estimateHeight = CGFloat(self.opinions.count) * 44 + 10
+        let estimateHeight = CGFloat(self.options.count) * 44 + 10
         
         let heightConstant = estimateHeight > maxHeight ? maxHeight : estimateHeight
         
@@ -81,15 +87,15 @@ extension SingleSelectViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.opinions.count
+        return self.options.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "OpinionCell") as? OpinionCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "OptionCell") as? OptionCell {
             
-            cell.opinionLabel.text = self.opinions[indexPath.row]
+            cell.optionLabel.text = self.options[indexPath.row]
             
             guard indexPath.row == self.selectedIndex else { cell.accessoryType = .none; return cell }
             
