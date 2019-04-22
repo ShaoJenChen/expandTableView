@@ -15,6 +15,8 @@ class SJExpandTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.extendedLayoutIncludesOpaqueBars = true
+        
         self.SJExpandTableView.tableFooterView = UIView()
         
     }
@@ -44,6 +46,8 @@ extension SJExpandTableViewController {
         cell.titleLabel.text = title
         
         cell.parantTable = tableView
+        
+        cell.selectedItemLabel.text = ""
         
         if let selectedIndex = cell.selectedIndex,
             let options = cell.selectOptions {
