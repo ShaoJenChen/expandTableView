@@ -165,32 +165,34 @@ extension SJExpandTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if let cell = tableView.cellForRow(at: indexPath) as? DatePickerCell {
-
+            
             return cell.cellHeightConstraint.constant
-
+            
         }
-
+        
         if let cell = tableView.cellForRow(at: indexPath) as? InputFieldCell {
-
+            
             return cell.cellHeightConstraint.constant
-
+            
         }
-
+        
         if let cell = tableView.cellForRow(at: indexPath) as? SingleSelectCell,
             cell.isExpanded {
-
-                let maxHeight = self.view.frame.height * 0.3
-                
-                let estimateHeight = CGFloat(cell.selectOptions!.count) * 44 + 44
-
-                let heightConstant = estimateHeight > maxHeight ? maxHeight : estimateHeight
-
-                return heightConstant
-
+            
+            let maxHeight = self.view.frame.height * 0.3
+            
+            let estimateHeight = CGFloat(cell.selectOptions!.count) * 44 + 44
+            
+            let heightConstant = estimateHeight > maxHeight ? maxHeight : estimateHeight
+            
+            cell.cellHeightConstraint.constant = heightConstant
+            
+            return heightConstant
+            
         }
-
+        
         return 44.0
-
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
