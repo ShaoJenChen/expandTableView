@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SJExpandTableViewController: UIViewController {
+class SJExpandTableViewController: UIViewController, SJExpandProtocol {
     
     @IBOutlet weak var SJExpandTableView: UITableView!
     
@@ -18,96 +18,6 @@ class SJExpandTableViewController: UIViewController {
         self.extendedLayoutIncludesOpaqueBars = true
         
         self.SJExpandTableView.tableFooterView = UIView()
-        
-    }
-    
-}
-
-// MARK: Create Cell
-
-extension SJExpandTableViewController {
-    
-    private func getDatePickerCell(_ tableView: UITableView, title: String) -> DatePickerCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DatePickerCell") as! DatePickerCell
-        
-        cell.titleLabel.text = title
-        
-        return cell
-        
-    }
-    
-    private func getSingleSelectCell(_ tableView: UITableView, title: String, options: [String]? ) -> SingleSelectCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SingleSelectCell") as! SingleSelectCell
-        
-        cell.selectOptions = options
-        
-        cell.titleLabel.text = title
-        
-        cell.parantTable = tableView
-        
-        cell.selectedItemLabel.text = ""
-        
-        if let selectedIndex = cell.selectedIndex,
-            let options = cell.selectOptions {
-            
-            cell.selectedItemLabel.text = options[selectedIndex]
-            
-        }
-        
-        return cell
-        
-    }
-    
-    private func getInputFieldCell(_ tableView: UITableView, indexPath: IndexPath, title: String, placeHolder: String) -> InputFieldCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldCell
-        
-        cell.tableView = tableView
-        
-        cell.indexPath = indexPath
-        
-        cell.titleLabel.text = title
-        
-        cell.placeHolder = placeHolder
-        
-        return cell
-        
-    }
-    
-}
-
-//MARK: HandleAnimate
-
-extension SJExpandTableViewController {
-    
-    func expandCollapseAnimate(_ tableView: UITableView, indexPath: IndexPath) {
-        
-        tableView.beginUpdates()
-        
-        guard let visibleIndexPaths = tableView.indexPathsForVisibleRows else {  tableView.endUpdates(); return }
-        
-        for visibleIndexPath in visibleIndexPaths {
-            
-            if let cell = tableView.cellForRow(at: visibleIndexPath) as? SJExpandCell {
-                
-                if !cell.isExpanded && visibleIndexPath == indexPath {
-                    
-                    cell.expand()
-                    
-                }
-                else {
-                    
-                    cell.collapse()
-                    
-                }
-                
-            }
-            
-        }
-        
-        tableView.endUpdates()
         
     }
     
@@ -164,34 +74,7 @@ extension SJExpandTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if let cell = tableView.cellForRow(at: indexPath) as? DatePickerCell {
-            
-            return cell.cellHeightConstraint.constant
-            
-        }
-        
-        if let cell = tableView.cellForRow(at: indexPath) as? InputFieldCell {
-            
-            return cell.cellHeightConstraint.constant
-            
-        }
-        
-        if let cell = tableView.cellForRow(at: indexPath) as? SingleSelectCell,
-            cell.isExpanded {
-            
-            let maxHeight = self.view.frame.height * 0.3
-            
-            let estimateHeight = CGFloat(cell.selectOptions!.count) * 44 + 44
-            
-            let heightConstant = estimateHeight > maxHeight ? maxHeight : estimateHeight
-            
-            cell.cellHeightConstraint.constant = heightConstant
-            
-            return heightConstant
-            
-        }
-        
-        return 44.0
+        return self.getExpandCellHeight(tableView, indexPath: indexPath)
         
     }
     
