@@ -20,6 +20,8 @@ protocol SJExpandProtocol {
     
     func getInputFieldCell(_ tableView: UITableView, indexPath: IndexPath, title: String, placeHolder: String) -> InputFieldCell
     
+    func getMultiImageCell(_ tableView: UITableView, title: String, images: [UIImage]?) -> MultiImageCell
+    
 }
 
 extension SJExpandProtocol {
@@ -130,6 +132,18 @@ extension SJExpandProtocol {
         cell.titleLabel.text = title
         
         cell.placeHolder = placeHolder
+        
+        return cell
+        
+    }
+    
+    func getMultiImageCell(_ tableView: UITableView, title: String, images: [UIImage]?) -> MultiImageCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MultiImageCell") as! MultiImageCell
+        
+        cell.images = images
+        
+        cell.titleLabel.text = title
         
         return cell
         

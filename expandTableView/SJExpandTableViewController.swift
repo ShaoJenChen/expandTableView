@@ -28,7 +28,7 @@ extension SJExpandTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 6
+        return 7
         
     }
     
@@ -62,6 +62,9 @@ extension SJExpandTableViewController: UITableViewDataSource {
         case 5:
             return self.getInputFieldCell(tableView, indexPath: indexPath, title: "Note2", placeHolder: "InputNote")
             
+        case 6:
+            return self.getMultiImageCell(tableView, title: "Faces", images: [UIImage(named: "face1")!, UIImage(named: "face2")!])
+            
         default:
             return UITableViewCell()
         }
@@ -73,6 +76,12 @@ extension SJExpandTableViewController: UITableViewDataSource {
 extension SJExpandTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.row == 6 {
+            
+            return 144.0
+            
+        }
         
         return self.getExpandCellHeight(tableView, indexPath: indexPath)
         

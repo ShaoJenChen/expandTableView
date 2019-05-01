@@ -15,6 +15,8 @@
 		8D1E8E352266C5C000031B28 /* SJExpandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E8E332266C5C000031B28 /* SJExpandTableViewController.swift */; };
 		8D1E8E362266C5C000031B28 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E8E342266C5C000031B28 /* DatePickerCell.swift */; };
 		8D1E8E382266C60700031B28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D1E8E372266C60700031B28 /* Main.storyboard */; };
+		8D244EBC2279B4D400BBE9D8 /* MultiImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D244EBB2279B4D400BBE9D8 /* MultiImageCell.swift */; };
+		8D244EBE2279C60A00BBE9D8 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D244EBD2279C60A00BBE9D8 /* ImageCell.swift */; };
 		8D2B47EC2278888C00325313 /* SJExpandProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2B47EB2278888C00325313 /* SJExpandProtocol.swift */; };
 		8D490E372268263100BE1205 /* SingleSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D490E362268263100BE1205 /* SingleSelectCell.swift */; };
 		8DB595712269989500C638AC /* InputFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB595702269989500C638AC /* InputFieldCell.swift */; };
@@ -32,6 +34,8 @@
 		8D1E8E332266C5C000031B28 /* SJExpandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SJExpandTableViewController.swift; sourceTree = "<group>"; };
 		8D1E8E342266C5C000031B28 /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		8D1E8E372266C60700031B28 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8D244EBB2279B4D400BBE9D8 /* MultiImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiImageCell.swift; sourceTree = "<group>"; };
+		8D244EBD2279C60A00BBE9D8 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		8D2B47EB2278888C00325313 /* SJExpandProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJExpandProtocol.swift; sourceTree = "<group>"; };
 		8D490E362268263100BE1205 /* SingleSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectCell.swift; sourceTree = "<group>"; };
 		8DB595702269989500C638AC /* InputFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldCell.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 				8D490E362268263100BE1205 /* SingleSelectCell.swift */,
 				8DD6783722685FB40035B255 /* OptionCell.swift */,
 				8DB595702269989500C638AC /* InputFieldCell.swift */,
+				8D244EBB2279B4D400BBE9D8 /* MultiImageCell.swift */,
+				8D244EBD2279C60A00BBE9D8 /* ImageCell.swift */,
 				8D1E8E372266C60700031B28 /* Main.storyboard */,
 				8D1E8E282266C5A300031B28 /* Assets.xcassets */,
 				8D1E8E2A2266C5A300031B28 /* LaunchScreen.storyboard */,
@@ -160,9 +166,11 @@
 				8D1E8E352266C5C000031B28 /* SJExpandTableViewController.swift in Sources */,
 				8D1100E4226A9EFF00858C03 /* SJExpandCell.swift in Sources */,
 				8D490E372268263100BE1205 /* SingleSelectCell.swift in Sources */,
+				8D244EBE2279C60A00BBE9D8 /* ImageCell.swift in Sources */,
 				8D1100E6226AB60500858C03 /* BaseCell.swift in Sources */,
 				8D2B47EC2278888C00325313 /* SJExpandProtocol.swift in Sources */,
 				8D1E8E362266C5C000031B28 /* DatePickerCell.swift in Sources */,
+				8D244EBC2279B4D400BBE9D8 /* MultiImageCell.swift in Sources */,
 				8DD6783822685FB40035B255 /* OptionCell.swift in Sources */,
 				8D1E8E222266C5A000031B28 /* AppDelegate.swift in Sources */,
 			);
